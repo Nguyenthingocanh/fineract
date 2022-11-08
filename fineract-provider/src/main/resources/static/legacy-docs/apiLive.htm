@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="apidocs.css" type="text/css" media="screen" title="Apache Fineract API Docs" charset="utf-8" />
+<link rel="stylesheet" href="apidocs.css" type="text/css" media="screen" title="Cash Management API Docs" charset="utf-8" />
 <script type="text/javascript" src="jquery-1.7.min.js"></script>
-<title>Apache Fineract API Documentation</title>
+<title>Cash Management API Documentation</title>
 
 <script>
 	QueryParameters = (function() {
@@ -63,8 +63,8 @@
 	}
 
 	function getBaseURL(docURL) {
-		var localhostUrl = "https://localhost:8443/fineract-provider/api/v1/";
-		var openmfDemoUrl = "/fineract-provider/api/v1/";
+		var localhostUrl = "https://localhost:8443/devhub/api/v1/";
+		var openmfDemoUrl = "/devhub/api/v1/";
 
 		var baseUrl = "";
 
@@ -75,7 +75,7 @@
 				baseUrl = openmfDemoUrl;
 			} else {
 				baseUrl = "https://" + l.hostname
-						+ ":8443/fineract-provider/api/v1/"
+						+ ":8443/devhub/api/v1/"
 			}
 		} else {
 			//assume running locally
@@ -97,7 +97,7 @@
 					<div class="toc-column1">
 						<div class="toc-section">
 <ul>
-	<li><a href="#top">Apache Fineract API Documentation</a></li>
+	<li><a href="#top">Cash Management API Documentation</a></li>
 	<li><a href="#interact">Try The API From Your Browser</a></li>
 	<li><a href="#genopts">Generic Options</a></li>
 	<li><a href="#creates_and_updates">Creating and Updating</a></li>
@@ -4175,13 +4175,13 @@
 			<a id="top" name="top" class="old-syle-anchor">&nbsp;</a>
 			<div class="method-section">
 				<div class="method-description">
-					<h3>Apache Fineract API Documentation</h3>
-					<p>Apache Fineract is a secure, multi-tenanted microfinance platform.</p>
+					<h3>Cash Management API Documentation</h3>
+					<p>Cash Management is a secure, multi-tenanted microfinance platform.</p>
 					<p>
-						The goal of the Apache Fineract API is to empower developers to build apps
-						on top of the Apache Fineract Platform. The <a
-							href="https://demo.openmf.org" target="_blank">reference app</a>
-						(username: mifos, password: password) works on the same demo
+						The goal of the Cash Management API is to empower developers to build apps
+						on top of the Cash Management Platform. The <a
+							href="https://cash-man-dev-equix.app" target="_blank">reference app</a>
+						works on the same demo
 						'tenant' as the interactive links in this documentation.
 					</p>
 					<p>
@@ -4236,7 +4236,7 @@
 							JSON data as part of the request body (Content-Type:
 							application/json)</li>
 						<li class=normalli>Add a header to indicate your 'tenant'
-							(X-Mifos-Platform-TenantId: default)</li>
+							(X-Cash-Management-Platform-TenantId: default)</li>
 						<li class=normalli>Paste the example JSON into a Request Body</li>
 						<li class=normalli>Send the Request (and receive a Response)</li>
 					</ul>
@@ -4381,7 +4381,7 @@
 
 					<p>
 						Default authentication is using HTTP Basic Auth. Oauth2 can be enabled by using <i>-Psecurity=oauth</i> option on gradle build command , refer
-						the platform setup <a href="https://github.com/openMF/mifosx/wiki/Launching-platform-server-locally-from-the-command-line#choosing-authentication-mechanism"> wiki</a> for additional details.
+						the platform setup <a href="#"> wiki</a> for additional details.
 					</p>
 					<p>
 						Optionally, two-factor authentication can be enabled by using
@@ -4414,7 +4414,7 @@
 				</div>
 				<div class="method-example">
 <code>
-// A Javascript/Jquery example of how to login to Apache Fineract and use its api.
+// A Javascript/Jquery example of how to login to Cash Management and use its api.
 // Typically, the javascript application would
 // 1) Display a login page to retrieve the username and password.
 // 2) Send the username and password to a function
@@ -4471,7 +4471,7 @@ function executeAjaxRequest(url, verbType, jsonData, basicAuthKey, successFuncti
 				</div>
 				<div class="method-example">
 <code>
-// A Javascript/JQuery example of how to login to Apache Fineract and use its API.
+// A Javascript/JQuery example of how to login to Cash Management and use its API.
 // Typically, the JavaScript application would:
 // 1) Display a login page to retrieve the username and password.
 // 2) Send the username, password, client_id , grant_type and client_secret to a function
@@ -4664,7 +4664,7 @@ function executeAjaxRequest(url, verbType, jsonData, authKey, successFunction, e
 					<h3>Batch API</h3>
 
 					<p>
-						The Apache Fineract Batch API enables a consumer to access significant amounts of data in a single call or to make changes to several objects at once.
+						The Cash Management Batch API enables a consumer to access significant amounts of data in a single call or to make changes to several objects at once.
 						Batching allows a consumer to pass instructions for several operations in a  single HTTP request. A consumer can also specify dependencies between related operations. Once all operations have been completed, a consolidated response will be  passed back and the HTTP connection will be closed.
 					</p>
 
@@ -4790,7 +4790,7 @@ Content-Type: application/json Request Body:
             "value":"text/html"
          },
          {
-            "name":"X-Mifos-Platform-TenantId",
+            "name":"X-Cash-Management-Platform-TenantId",
             "value":"text/html"
          }
       ],
@@ -4882,7 +4882,7 @@ Content-Type: application/json Request Body:
 					<h4>Batch requests in a single transaction</h4>
 
 					<p>
-						The Apache Fineract Batch API is also capable of executing all the requests in a single transaction, by setting a Query Parameter, "enclosingTransaction=true". So, if one or more of the requests in a batch returns an erroneous response all of the Data base transactions made by other successful requests will be rolled back.
+						The Cash Management Batch API is also capable of executing all the requests in a single transaction, by setting a Query Parameter, "enclosingTransaction=true". So, if one or more of the requests in a batch returns an erroneous response all of the Data base transactions made by other successful requests will be rolled back.
 					</p>
 
 					<p>
@@ -4908,7 +4908,7 @@ Content-Type: application/json Request Body:
         "value":"text/html"
       },
       {
-        "name":"X-Mifos-Platform-TenantId",
+        "name":"X-Cash-Management-Platform-TenantId",
         "value":"text/html"
       }
     ],
@@ -4956,7 +4956,7 @@ Successful transaction response:
         "value":"text/html"
       },
       {
-        "name":"X-Mifos-Platform-TenantId",
+        "name":"X-Cash-Management-Platform-TenantId",
         "value":"text/html"
       }
     ],
@@ -4998,7 +4998,7 @@ Successful transaction response:
 					<h4>Available Command Strategies</h4>
 
 					<p>
-						These are the currently available command strategies within the Mifos Batch API. So, these listed operations can be executed using a Batch Request.
+						These are the currently available command strategies within the Cash Management Batch API. So, these listed operations can be executed using a Batch Request.
 					</p>
 
 				</div>
@@ -5044,7 +5044,7 @@ Successful transaction response:
 <b>Error Message returned when attempting to create an Office without passing any parameters</b>
 {
 "developerMessage": "The request was invalid. This typically will happen due to validation errors which are provided.",
-"developerDocLink": "https://github.com/openMF/mifosx/wiki/HTTP-API-Error-codes",
+"developerDocLink": "#",
 "httpStatusCode": "400",
 "defaultUserMessage": "Validation errors exist.",
 "userMessageGlobalisationCode": "validation.msg.validation.errors.exist",
@@ -5082,7 +5082,7 @@ Successful transaction response:
 					<h3>Self Service API Overview</h3>
 					<p>
 					Self Service APIs are a set of APIs with restricted data scope. Functional specifications and design can be viewed
-					<a href="https://mifosforge.jira.com/wiki/display/MIFOSX/Customer+Self+Service">here</a>.
+					<a href="#">here</a>.
 					</p>
 
 					<p>
@@ -6290,7 +6290,7 @@ GET https://DomainName/api/v1/clients/{clientId}
       1,
       1
     ],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator",
     "activatedOnDate": [
@@ -6298,7 +6298,7 @@ GET https://DomainName/api/v1/clients/{clientId}
       1,
       1
     ],
-    "activatedByUsername": "mifos",
+    "activatedByUsername": "cash_man",
     "activatedByFirstname": "App",
     "activatedByLastname": "Administrator"
   },
@@ -7551,7 +7551,7 @@ No Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/centers/template
+GET https://DomainName/devhub/api/v1/centers/template
 					</code>
 					<code class="method-response">
 {
@@ -7602,7 +7602,7 @@ GET https://DomainName/fineract-provider/api/v1/centers/template
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/centers/template?officeId=2
+GET https://DomainName/devhub/api/v1/centers/template?officeId=2
 					</code>
 					<code class="method-response">
 {
@@ -7665,7 +7665,7 @@ GET https://DomainName/fineract-provider/api/v1/centers/template?officeId=2
 				<div class="method-example">
 					<p>Create a center as pending with no association to groupMembers.</p>
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/centers
+POST https://DomainName/devhub/api/v1/centers
 					</code>
 					<code class="method-request">
 POST centers
@@ -7688,7 +7688,7 @@ Content-Type: application/json Request Body:
 				<div class="method-example">
 					<p>Create a center as active with no association to groupMembers.</p>
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/centers
+POST https://DomainName/devhub/api/v1/centers
 					</code>
 					<code class="method-request">
 POST centers
@@ -7876,7 +7876,7 @@ GET https://DomainName/api/v1/centers/{centerId}/accounts
   },
   "timeline": {
    "submittedOnDate": [2014,5,1],
-   "submittedByUsername": "mifos",
+   "submittedByUsername": "cash_man",
    "submittedByFirstname": "App",
    "submittedByLastname": "Administrator"
   },
@@ -8177,7 +8177,7 @@ Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-PUT https://DomainName/fineract-provider/api/v1/centers/{centerId}
+PUT https://DomainName/devhub/api/v1/centers/{centerId}
 						</code>
 					<code class="method-request">
 PUT centers/8
@@ -8208,7 +8208,7 @@ Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/centers/{centerId}
+POST https://DomainName/devhub/api/v1/centers/{centerId}
 						</code>
 					<code class="method-request">
 DELETE centers/8
@@ -8234,7 +8234,7 @@ DELETE centers/8
 				<div class="method-example">
 					<p>Retrieve an existing center with no groups information.</p>
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/centers/8
+GET https://DomainName/devhub/api/v1/centers/8
 					</code>
 					<code class="method-response">
 {
@@ -8255,7 +8255,7 @@ GET https://DomainName/fineract-provider/api/v1/centers/8
 				<div class="method-example">
 					<p>Retrieve an existing center without the details of group associations.</p>
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/centers/9
+GET https://DomainName/devhub/api/v1/centers/9
 					</code>
 					<code class="method-response">
 {
@@ -8356,7 +8356,7 @@ GET https://DomainName/fineract-provider/api/v1/centers/9
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/centers?paged=true
+GET https://DomainName/devhub/api/v1/centers?paged=true
 					</code>
 					<code class="method-response">
 {
@@ -8549,7 +8549,7 @@ GET https://DomainName/fineract-provider/api/v1/centers?paged=true
 				<div class="method-example">
 					<p>Template to create a standard group</p>
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups/template
+GET https://DomainName/devhub/api/v1/groups/template
 					</code>
 					<code class="method-response">
 {
@@ -8651,7 +8651,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/template
 				<div class="method-example">
 					<p>Template to create a standard group with specific office known. This will return only staffOptions and clientMembersOptions relevant for the chosen office.</p>
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups/template?officeId=2
+GET https://DomainName/devhub/api/v1/groups/template?officeId=2
 					</code>
 					<code class="method-response">
 {
@@ -8684,7 +8684,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/template?officeId=2
 				<div class="method-example">
 					<p>Template to create a group for an existing center. As an existing center will be assigned to an office, this will return only staffOptions and clientMembersOptions relevant for the chosen center/office.</p>
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups/template?centerId=1
+GET https://DomainName/devhub/api/v1/groups/template?centerId=1
 					</code>
 					<code class="method-response">
 
@@ -8716,7 +8716,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/template?centerId=1
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/groups
+POST https://DomainName/devhub/api/v1/groups
 					</code>
 					<code class="method-request">
 POST groups
@@ -9368,7 +9368,7 @@ Request Body:
                 <div class="method-example">
                     <p>Group without any associations.</p>
                     <code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups/1
+GET https://DomainName/devhub/api/v1/groups/1
                     </code>
                     <code class="method-response">
 {
@@ -9384,7 +9384,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/1
     11,
     14
     ],
-    "activatedByUsername": "mifos",
+    "activatedByUsername": "cash_man",
     "activatedByFirstname": "App",
     "activatedByLastname": "Administrator"
     }
@@ -9394,7 +9394,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/1
                 <div class="method-example">
                     <p>Group along with all its Clients.</p>
                     <code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups/1?associations=clientMembers
+GET https://DomainName/devhub/api/v1/groups/1?associations=clientMembers
                     </code>
                     <code class="method-response">
 {
@@ -9410,7 +9410,7 @@ GET https://DomainName/fineract-provider/api/v1/groups/1?associations=clientMemb
     11,
     14
     ],
-    "activatedByUsername": "mifos",
+    "activatedByUsername": "cash_man",
     "activatedByFirstname": "App",
     "activatedByLastname": "Administrator"
    },
@@ -9669,7 +9669,7 @@ GET https://DomainName/api/v1/groups/{groupId}/accounts
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-PUT https://DomainName/fineract-provider/api/v1/groups/{groupid}
+PUT https://DomainName/devhub/api/v1/groups/{groupid}
 						</code>
 					<code class="method-request">
 PUT groups/1
@@ -9700,7 +9700,7 @@ Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/groups/{groupid}
+POST https://DomainName/devhub/api/v1/groups/{groupid}
 						</code>
 					<code class="method-request">
 DELETE groups/2
@@ -9796,7 +9796,7 @@ DELETE groups/2
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/groups?paged=true
+GET https://DomainName/devhub/api/v1/groups?paged=true
 					</code>
 					<code class="method-response">
 {
@@ -9834,7 +9834,7 @@ GET https://DomainName/fineract-provider/api/v1/groups?paged=true
                 </div>
                 <div class="method-example">
                     <code class="method-declaration">
-GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/gsimaccounts
+GET  https://DomainName/devhub/api/v1/groups/{groupId}/gsimaccounts
                     </code>
 
 
@@ -9889,15 +9889,15 @@ GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/gsimaccounts
     },
     "timeline": {
     "submittedOnDate": [2020, 6, 3],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator",
     "withdrawnOnDate": [2020, 6, 3],
-    "withdrawnByUsername": "mifos",
+    "withdrawnByUsername": "cash_man",
     "withdrawnByFirstname": "App",
     "withdrawnByLastname": "Administrator",
     "closedOnDate": [2020, 6, 3],
-    "closedByUsername": "mifos",
+    "closedByUsername": "cash_man",
     "closedByFirstname": "App",
     "closedByLastname": "Administrator"
     },
@@ -9963,16 +9963,16 @@ GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/gsimaccounts
     },
     "timeline": {
     "submittedOnDate": [2020, 6, 3],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator",
     "approvedOnDate": [2020, 6, 4],
-    "approvedByUsername": "mifos",
+    "approvedByUsername": "cash_man",
     "approvedByFirstname": "App",
     "approvedByLastname": "Administrator",
     "activatedOnDate": [2020, 6, 4],
     "closedOnDate": [2020, 6, 4],
-    "closedByUsername": "mifos",
+    "closedByUsername": "cash_man",
     "closedByFirstname": "App",
     "closedByLastname": "Administrator"
     },
@@ -10017,7 +10017,7 @@ GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/gsimaccounts
                 </div>
                 <div class="method-example">
                     <code class="method-declaration">
-GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/glimaccounts
+GET  https://DomainName/devhub/api/v1/groups/{groupId}/glimaccounts
                     </code>
 
                     <code class="method-response">
@@ -10052,20 +10052,20 @@ GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/glimaccounts
       },
       "timeline": {
       "submittedOnDate": [2020, 6, 10],
-      "submittedByUsername": "mifos",
+      "submittedByUsername": "cash_man",
       "submittedByFirstname": "App",
       "submittedByLastname": "Administrator",
       "rejectedOnDate": [2020, 6, 12],
-      "rejectedByUsername": "mifos",
+      "rejectedByUsername": "cash_man",
       "rejectedByFirstname": "App",
       "rejectedByLastname": "Administrator",
       "expectedDisbursementDate": [2020, 6, 10],
       "closedOnDate": [2020, 6, 12],
-      "closedByUsername": "mifos",
+      "closedByUsername": "cash_man",
       "closedByFirstname": "App",
       "closedByLastname": "Administrator",
       "expectedMaturityDate": [2021, 4, 10],
-      "writeOffByUsername": "mifos",
+      "writeOffByUsername": "cash_man",
       "writeOffByFirstname": "App",
       "writeOffByLastname": "Administrator"
     },
@@ -10104,11 +10104,11 @@ GET  https://DomainName/fineract-provider/api/v1/groups/{groupId}/glimaccounts
     },
     "timeline": {
     "submittedOnDate": [2020, 6, 10],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator",
     "approvedOnDate": [2020, 6, 12],
-    "approvedByUsername": "mifos",
+    "approvedByUsername": "cash_man",
     "approvedByFirstname": "App",
     "approvedByLastname": "Administrator",
     "expectedDisbursementDate": [2020, 6, 10],
@@ -10351,7 +10351,7 @@ An enumeration that indicates the type of transaction processing strategy to be 
 
 <i>List of current approaches</i>:<br/>
 <ul>
-	<li>1 = Mifos style (Similar to Old Mifos)</li>
+	<li>1 = Cash Management style (Similar to Old Cash Management)</li>
 	<li>2 = Heavensfamily (Custom MFI approach)</li>
 	<li>3 = Creocore (Custom MFI approach)</li>
 	<li>4 = RBI (India)</li>
@@ -11188,7 +11188,7 @@ GET https://DomainName/api/v1/loans/{loanId}
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/loans
+GET https://DomainName/devhub/api/v1/loans
 					</code>
 					<code class="method-response">
 {
@@ -11272,7 +11272,7 @@ GET https://DomainName/fineract-provider/api/v1/loans
           6,
           1
         ],
-        "submittedByUsername": "mifos",
+        "submittedByUsername": "cash_man",
         "submittedByFirstname": "App",
         "submittedByLastname": "Administrator",
         "approvedOnDate": [
@@ -11280,7 +11280,7 @@ GET https://DomainName/fineract-provider/api/v1/loans
           6,
           1
         ],
-        "approvedByUsername": "mifos",
+        "approvedByUsername": "cash_man",
         "approvedByFirstname": "App",
         "approvedByLastname": "Administrator",
         "expectedDisbursementDate": [
@@ -11293,7 +11293,7 @@ GET https://DomainName/fineract-provider/api/v1/loans
           6,
           1
         ],
-        "disbursedByUsername": "mifos",
+        "disbursedByUsername": "cash_man",
         "disbursedByFirstname": "App",
         "disbursedByLastname": "Administrator",
         "expectedMaturityDate": [
@@ -11371,7 +11371,7 @@ GET https://DomainName/fineract-provider/api/v1/loans
     </div>
     <div class="method-example">
     <code class="method-declaration">
-GET  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}
+GET  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}
     </code>
     <code class="method-response">
 [
@@ -12231,7 +12231,7 @@ Content-Type: application/json
   </div>
   <div class="method-example">
     <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/loans
+https://DomainName/devhub/api/v1/loans
     </code>
     <code class="method-request">
 POST:  loans
@@ -12292,7 +12292,7 @@ Request Body:
     </div>
     <div class="method-example">
     <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=approve
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=approve
     </code>
     <code class="method-request">
 POST:  loans/glimAccount/1?command=approve
@@ -12358,7 +12358,7 @@ Request Body:
     </div>
     <div class="method-example">
       <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=undoapproval
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=undoapproval
       </code>
       <code class="method-request">
 POST:  loans/glimAccount/1?command=undoapproval
@@ -12414,7 +12414,7 @@ Request Body:
     </div>
     <div class="method-example">
       <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=reject
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=reject
       </code>
       <code class="method-request">
 POST:  loans/glimAccount/1?command=reject
@@ -12475,7 +12475,7 @@ Request Body:
    </div>
    <div class="method-example">
       <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=disburse
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=disburse
       </code>
       <code class="method-request">
 POST:  loans/glimAccount/2?command=disburse
@@ -12534,7 +12534,7 @@ Request Body:
     </div>
     <div class="method-example">
     <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=undodisbursal
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=undodisbursal
     </code>
     <code class="method-request">
 POST:  loans/glimAccount/2?command=undodisbursal
@@ -12589,7 +12589,7 @@ Request Body:
     </div>
     <div class="method-example">
       <code class="method-declaration">
-POST  https://DomainName/fineract-provider/api/v1/loans/glimAccount/{glimId}?command=glimrepayment
+POST  https://DomainName/devhub/api/v1/loans/glimAccount/{glimId}?command=glimrepayment
       </code>
       <code class="method-request">
 POST:  loans/glimAccount/2?command=glimrepayment
@@ -14517,7 +14517,7 @@ GET https://DomainName/api/v1/rescheduleloans/{requestId}
       9,
       4
     ],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator"
   },
@@ -15752,7 +15752,7 @@ An enumeration that indicates the type of transaction processing strategy to be 
 
 <i>List of current approaches</i>:<br/>
 <ul>
-	<li>1 = Mifos style (Similar to Old Mifos)</li>
+	<li>1 = Cash Management style (Similar to Old Cash Management)</li>
 	<li>2 = Heavensfamily (Custom MFI approach)</li>
 	<li>3 = Creocore (Custom MFI approach)</li>
 	<li>4 = RBI (India)</li>
@@ -15987,7 +15987,7 @@ GET https://DomainName/api/v1/loanproducts
       "value": "Same as repayment period"
     },
     "transactionProcessingStrategyId": 1,
-    "transactionProcessingStrategyName": "Mifos style",
+    "transactionProcessingStrategyName": "Cash Management style",
     "principalVariationsForBorrowerCycle": [],
     "interestRateVariationsForBorrowerCycle": [],
     "numberOfRepaymentVariationsForBorrowerCycle": [],
@@ -16235,7 +16235,7 @@ GET https://DomainName/api/v1/loanproducts/template
   "transactionProcessingStrategyOptions": [
     {
       "id": 1,
-      "code": "mifos-standard-strategy",
+      "code": "cash-man-standard-strategy",
       "name": "Penalties, Fees, Interest, Principal order"
     },
     {
@@ -16990,7 +16990,7 @@ GET https://DomainName/api/v1/loanproducts/{productId}
     "value": "Same as repayment period"
   },
   "transactionProcessingStrategyId": 1,
-  "transactionProcessingStrategyName": "Mifos style",
+  "transactionProcessingStrategyName": "Cash Management style",
   "charges": [],
   "principalVariationsForBorrowerCycle": [
     {
@@ -17149,8 +17149,8 @@ GET https://DomainName/api/v1/loanproducts/{productId}
 					 identifiers would need to be passed in.
 					</p>
 
-					</p>Refer <a href="https://mifosforge.jira.com/wiki/display/MIFOSX/A+Possible+accounting+Spec">
-					 MifosX Accounting Specs Draft</a> for more details regarding the
+					</p>Refer <a href="#">
+					 Cash ManagementX Accounting Specs Draft</a> for more details regarding the
 					 significance of the selected accounting rule
 					</p>
 
@@ -18654,10 +18654,10 @@ Request Body:
 					<p>Hooks are a mechanism to trigger custom code on the occurence of events.</p>
 					<p>Each template during hook creation represents custom behaviour on what actions should be taken on the triggering of a registered event for a hook. The action taken might be firing a HTTP request to another server or execute internal code.
 					<p />
-					<p>In order for MifosX to send webhook payloads, your server needs to be accessible from the Internet. MifosX will send along a few HTTP headers to differentiate between event types.</p>
-					<p>X-Mifos-Entity - The entity type that was triggered. <br/>
-					X-Mifos-Action - The action triggered on the entity type. <br/>
-				    X-Mifos-Platform-TenantId - The tenant which experienced the event.</p>
+					<p>In order for Cash ManagementX to send webhook payloads, your server needs to be accessible from the Internet. Cash ManagementX will send along a few HTTP headers to differentiate between event types.</p>
+					<p>X-Cash-Management-Entity - The entity type that was triggered. <br/>
+					X-Cash-Management-Action - The action triggered on the entity type. <br/>
+				    X-Cash-Management-Platform-TenantId - The tenant which experienced the event.</p>
 				</div>
 			</div>
 
@@ -19284,7 +19284,7 @@ Content-Type: application/json
 			<div class="method-section">
 				<div class="method-description">
 					<h3>Audits</h3>
-					<p>Every non-read Mifos API request is audited.  A fully processed request can
+					<p>Every non-read Cash Management API request is audited.  A fully processed request can
                                         not be changed or deleted.  See maker checker api for situations where an audit is not
                                         fully processed.<br><br>
 
@@ -20079,7 +20079,7 @@ No Request Body:
 			<div class="method-section">
 				<div class="method-description">
 					<h3>Maker Checker (or 4-eye) functionality</h3>
-                                        <p>Apache Fineract Maker Checker functionality allows an MFI to define transactions
+                                        <p>Cash Management Maker Checker functionality allows an MFI to define transactions
                                         as having a maker and a checker phase.  One user enters, deletes or changes data.
                                         Then, another user that has "Checker" rights for that transaction, can inspect
                                         and approve the data.
@@ -20357,7 +20357,7 @@ Content-Type: application/json
 			<a id="scheduler_jobs" name="scheduler_jobs" class="old-syle-anchor">&nbsp;</a>
 			<div class="method-section">
 				<div class="method-description">
-					<h3>MIFOSX-BATCH JOBS</h3>
+					<h3>Cash ManagementX-BATCH JOBS</h3>
 						<p>Batch jobs (also known as cron jobs on Unix-based systems) are a series of back-end jobs executed on a computer at a particular time defined in job's cron expression.
 						</p>
 
@@ -20477,7 +20477,7 @@ GET https://DomainName/api/v1/jobs
 GET https://DomainName/api/v1/jobs/{jobId}
 					</code>
 					<code class="method-response">
-https://localhost:8443/fineract-provider/api/v1/jobs/5
+https://localhost:8443/devhub/api/v1/jobs/5
 {
   "jobId": 5,
   "displayName": "Apply Holidays To Loans",
@@ -20628,7 +20628,7 @@ GET https://DomainName/api/v1/jobs/{jobid}/runhistory?offset=0&limit=200
 GET https://DomainName/api/v1/scheduler
 					</code>
 					<code class="method-response">
-https://localhost:8443/fineract-provider/api/v1/scheduler
+https://localhost:8443/devhub/api/v1/scheduler
 {
   "active": true
 }
@@ -20710,7 +20710,7 @@ GET https://DomainName/api/v1/externalservice/{serviceName}
     [
         {
             "name": "username",
-            "value": "test@mifos.com"
+            "value": "tech.support@novus-fintech.com"
         },
         {
             "name": "password",
@@ -20750,7 +20750,7 @@ PUT https://DomainName/api/v1/externalservice/{serviceName}
 PUT externalservice/S3
 Content-Type: application/json
 {
-	"username" : "test@mifos.org"
+	"username" : "tech.support@novus-fintech.com"
 	"password" : "XXXX"
 }
 				</code>
@@ -20819,7 +20819,7 @@ Content-Type: application/json
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration
+GET https://DomainName/devhub/api/v1/CreditBureauConfiguration
 					</code>
 					<code class="method-request">
 GET CreditBureauConfiguration
@@ -20862,7 +20862,7 @@ GET CreditBureauConfiguration
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/configuration/{creditBureauId}
+POST https://DomainName/devhub/api/v1/CreditBureauConfiguration/configuration/{creditBureauId}
 					</code>
 					<code class="method-request">
 POST CreditBureauConfiguration/configuration/1
@@ -20899,7 +20899,7 @@ Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/config/{organisationCreditBureauId}
+GET https://DomainName/devhub/api/v1/CreditBureauConfiguration/config/{organisationCreditBureauId}
 					</code>
 					<code class="method-request">
 GET CreditBureauConfiguration/config/1
@@ -20947,7 +20947,7 @@ GET CreditBureauConfiguration/config/1
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-PUT https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/configuration/{configurationId}
+PUT https://DomainName/devhub/api/v1/CreditBureauConfiguration/configuration/{configurationId}
 					</code>
 					<code class="method-request">
 PUT CreditBureauConfiguration/configuration/10
@@ -20995,7 +20995,7 @@ Request Body:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/organisationCreditBureau/{organisationCreditBureauId}
+POST https://DomainName/devhub/api/v1/CreditBureauConfiguration/organisationCreditBureau/{organisationCreditBureauId}
 					</code>
 					<code class="method-request">
 POST CreditBureauConfiguration/organisationCreditBureau/1
@@ -21022,7 +21022,7 @@ Content-Type: application/json:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/organisationCreditBureau
+GET https://DomainName/devhub/api/v1/CreditBureauConfiguration/organisationCreditBureau
 					</code>
 					<code class="method-request">
 GET CreditBureauConfiguration/organisationCreditBureau
@@ -21104,7 +21104,7 @@ Content-Type: application/json:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/mappings/{CreditBureauId}
+POST https://DomainName/devhub/api/v1/CreditBureauConfiguration/mappings/{CreditBureauId}
 					</code>
 					<code class="method-request">
 POST CreditBureauConfiguration/mappings/1
@@ -21134,7 +21134,7 @@ Content-Type: application/json:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/mappings
+GET https://DomainName/devhub/api/v1/CreditBureauConfiguration/mappings
 					</code>
 					<code class="method-request">
 GET CreditBureauConfiguration/mappings
@@ -21173,7 +21173,7 @@ GET CreditBureauConfiguration/mappings
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-PUT https://DomainName/fineract-provider/api/v1/CreditBureauConfiguration/mappings
+PUT https://DomainName/devhub/api/v1/CreditBureauConfiguration/mappings
 					</code>
 					<code class="method-request">
 PUT CreditBureauConfiguration/mappings
@@ -21247,7 +21247,7 @@ Content-Type: application/json:
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/creditBureauIntegration/creditReport
+POST https://DomainName/devhub/api/v1/creditBureauIntegration/creditReport
 					</code>
 					<code class="method-request">
 POST creditBureauIntegration/creditReport
@@ -21303,7 +21303,7 @@ Content-Type: application/json
 				</div>
 				<div class="method-example">
 					<code class="method-declaration">
-GET https://DomainName/fineract-provider/api/v1/creditBureauIntegration/creditReport/{creditBureauId}
+GET https://DomainName/devhub/api/v1/creditBureauIntegration/creditReport/{creditBureauId}
 					</code>
 					<code class="method-request">
 GET creditBureauIntegration/creditReport/1
@@ -26891,13 +26891,13 @@ Request Body:
 		"submittedOnDate": [2016,
 		4,
 		1],
-		"submittedByUsername": "mifos",
+		"submittedByUsername": "cash_man",
 		"submittedByFirstname": "App",
 		"submittedByLastname": "Administrator",
 		"approvedDate": [2016,
 		4,
 		1],
-		"approvedByUsername": "mifos",
+		"approvedByUsername": "cash_man",
 		"approvedByFirstname": "App",
 		"approvedByLastname": "Administrator",
 		"activatedDate": [2016,
@@ -26943,13 +26943,13 @@ Request Body:
 			"submittedOnDate": [2016,
 			4,
 			1],
-			"submittedByUsername": "mifos",
+			"submittedByUsername": "cash_man",
 			"submittedByFirstname": "App",
 			"submittedByLastname": "Administrator",
 			"approvedDate": [2016,
 			4,
 			1],
-			"approvedByUsername": "mifos",
+			"approvedByUsername": "cash_man",
 			"approvedByFirstname": "App",
 			"approvedByLastname": "Administrator",
 			"activatedDate": [2016,
@@ -28582,7 +28582,7 @@ Request Body:
         </div>
     <div class="method-example">
           <code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsim
+POST https://DomainName/devhub/api/v1/savingsaccounts/gsim
           </code>
           <code class="method-request">
 {
@@ -28643,7 +28643,7 @@ POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsim
          </div>
          <div class="method-example">
            <code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=approve
+POST https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=approve
            </code>
 
            <code class="method-request">
@@ -28702,7 +28702,7 @@ POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{g
         </div>
         <div class="method-example">
           <code class="method-declaration">
-POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=undoapproval
+POST https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=undoapproval
           </code>
           <code class="method-request">
 {
@@ -28756,7 +28756,7 @@ POST https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{g
       </div>
       <div class="method-example">
         <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=reject
+https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=reject
         </code>
         <code class="method-request">Associations: String optional One of, or comma separated of GSIM Applications or all for all associations
 POST:  savingsaccounts/gsimcommands/7?command=reject
@@ -28822,7 +28822,7 @@ Request Body:
     </div>
   <div class="method-example">
     <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=withdrawnByApplicant
+https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=withdrawnByApplicant
     </code>
     <code class="method-request">
 POST:  /savingsaccounts/gsimcommands/1?command=withdrawnOnDate
@@ -28887,7 +28887,7 @@ Request Body:
     </div>
     <div class="method-example">
       <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=activate
+https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=activate
       </code>
       <code class="method-request">
 POST:  /savingsaccounts/gsimcommands/10?command=activate
@@ -28950,7 +28950,7 @@ Request Body:
     </div>
     <div class="method-example">
       <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=close
+https://DomainName/devhub/api/v1/savingsaccounts/gsimcommands/{gsimId}?command=close
       </code>
       <code class="method-request">
 POST:  savingsaccounts/gsimcommands/10?command=close
@@ -29250,7 +29250,7 @@ No Request Body:
                 </div>
                 <div class="method-example">
                     <code class="method-declaration">
-https://DomainName/fineract-provider/api/v1/savingsaccounts/gsim/{gsimId}
+https://DomainName/devhub/api/v1/savingsaccounts/gsim/{gsimId}
                     </code>
                     <code class="method-request">
 PUT:  savingsaccounts/gsim/6
@@ -29482,7 +29482,7 @@ No Request Body:
                 </div>
                 <div class="method-example">
                     <code class="method-declaration">POST
-https://DomainName/fineract-provider/api/v1 /savingsaccounts/{savingsId}/transactions?command=gsimDeposit
+https://DomainName/devhub/api/v1 /savingsaccounts/{savingsId}/transactions?command=gsimDeposit
                     </code>
                     <code class="method-request">POST :  savingsaccounts/1/transactions?command=gsimDeposit
 Content-Type: application/json
@@ -31416,7 +31416,7 @@ Request Body:
         3,
         1
       ],
-      "submittedByUsername": "mifos",
+      "submittedByUsername": "cash_man",
       "submittedByFirstname": "App",
       "submittedByLastname": "Administrator"
     },
@@ -31545,7 +31545,7 @@ Request Body:
       3,
       1
     ],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator"
   },
@@ -32834,7 +32834,7 @@ Request Body:
           1,
           1
         ],
-        "submittedByUsername": "mifos",
+        "submittedByUsername": "cash_man",
         "submittedByFirstname": "App",
         "submittedByLastname": "Administrator",
         "approvedOnDate": [
@@ -32842,7 +32842,7 @@ Request Body:
           1,
           1
         ],
-        "approvedByUsername": "mifos",
+        "approvedByUsername": "cash_man",
         "approvedByFirstname": "App",
         "approvedByLastname": "Administrator",
         "activatedOnDate": [
@@ -33025,7 +33025,7 @@ Request Body:
         3,
         1
       ],
-      "submittedByUsername": "mifos",
+      "submittedByUsername": "cash_man",
       "submittedByFirstname": "App",
       "submittedByLastname": "Administrator"
     },
@@ -33167,7 +33167,7 @@ Request Body:
       3,
       1
     ],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator"
   },
@@ -34573,7 +34573,7 @@ No Request Body:
             2,
             1
          ],
-         "submittedByUsername": "mifos",
+         "submittedByUsername": "cash_man",
          "submittedByFirstname": "App",
          "submittedByLastname": "Administrator",
          "activatedOnDate": [
@@ -34581,7 +34581,7 @@ No Request Body:
             2,
             1
          ],
-         "activatedByUsername": "mifos",
+         "activatedByUsername": "cash_man",
          "activatedByFirstname": "App",
          "activatedByLastname": "Administrator"
       },
@@ -35096,7 +35096,7 @@ No Request Body:
         1,
         1
       ],
-      "submittedByUsername": "mifos",
+      "submittedByUsername": "cash_man",
       "submittedByFirstname": "App",
       "submittedByLastname": "Administrator",
       "activatedOnDate": [
@@ -35104,7 +35104,7 @@ No Request Body:
         1,
         1
       ],
-      "activatedByUsername": "mifos",
+      "activatedByUsername": "cash_man",
       "activatedByFirstname": "App",
       "activatedByLastname": "Administrator"
     },
@@ -35405,7 +35405,7 @@ No Request Body:
         3,
         4
       ],
-      "submittedByUsername": "mifos",
+      "submittedByUsername": "cash_man",
       "submittedByFirstname": "App",
       "submittedByLastname": "Administrator",
       "activatedOnDate": [
@@ -35413,7 +35413,7 @@ No Request Body:
         3,
         4
       ],
-      "activatedByUsername": "mifos",
+      "activatedByUsername": "cash_man",
       "activatedByFirstname": "App",
       "activatedByLastname": "Administrator"
     },
@@ -36322,20 +36322,20 @@ No Request Body:
 				<div class="method-description">
 					<h3>Data Tables</h3>
 					<p>The datatables API allows you to plug-in your own tables
-						(MySql) that have a relationship to a Apache Fineract core table. For
+						(MySql) that have a relationship to a Cash Management core table. For
 						example, you might want to add some extra client fields and record
 						information about each of the clients' family members. Via the API
 						you can create, read, update and delete entries for each
 						'plugged-in' table. The API checks for permission and for 'data
 						scoping' (only data within the users' office hierarchy can be
 						managed by the user).</p>
-					<p>The Apache Fineract Reference App uses a JQuery plug-in called
+					<p>The Cash Management Reference App uses a JQuery plug-in called
 						stretchydatatables (which in turn uses this datatables resource)
 						to provide a pretty flexible CRUD (Create, Read, Update, Delete)
 						User Interface.</p>
 					<p>
 						<a
-							href="https://mifosforge.jira.com/wiki/display/MIFOSX/Mifos+X+-+Plugging+In+Non-Core+and+User+Defined+Data">More
+							href="#">More
 							Documentation</a>
 					</p>
 				</div>
@@ -36346,7 +36346,7 @@ No Request Body:
 			<div class="method-section">
 				<div class="method-description">
 					<h4>Create Data Table</h4>
-                    <p>Create a new data table and registers it with the Apache Fineract Core application
+                    <p>Create a new data table and registers it with the Cash Management Core application
                         table.</p>
 					<table class=matrixHeading>
 						<tr class="matrixHeadingBG">
@@ -36517,7 +36517,7 @@ Request Body:
 			<div class="method-section">
 				<div class="method-description">
 					<h4>List Data Tables</h4>
-					<p>Lists registered data tables and the Apache Fineract Core
+					<p>Lists registered data tables and the Cash Management Core
 						application table they are registered to.</p>
 
 					<h5>Arguments</h5>
@@ -36526,7 +36526,7 @@ Request Body:
 						<dd>
 							<span>optional</span>
 						</dd>
-						<dd>The Apache Fineract core application table.</dd>
+						<dd>The Cash Management core application table.</dd>
 					</dl>
 					<p>Example Requests:</p>
 					<div class=apiClick>datatables?apptable=m_client</div>
@@ -36592,7 +36592,7 @@ GET https://DomainName/api/v1/datatables
 			<div class="method-section">
 				<div class="method-description">
                     <h4>Retrieve Data Table Details</h4>
-					<p>Lists a registered data table details and the Apache Fineract Core
+					<p>Lists a registered data table details and the Cash Management Core
 						application table they are registered to.</p>
 				</div>
 				<div class="method-example">
@@ -36856,7 +36856,7 @@ Request Body:
 			<div class="method-section">
 				<div class="method-description">
 					<h4>Delete Data Table</h4>
-                    <p>Deletes a data table and deregisters it from the Apache Fineract Core
+                    <p>Deletes a data table and deregisters it from the Cash Management Core
                         application table.</p>
 				</div>
 				<div class="method-example">
@@ -36882,7 +36882,7 @@ No Request Body
 			<div class="method-section">
 				<div class="method-description">
 					<h4>Register Data Table</h4>
-					<p>Registers a data table with the Apache Fineract Core application
+					<p>Registers a data table with the Cash Management Core application
 						table. This allows the data table to be maintained through the
 						API.
 						In case the datatable is a PPI (survey table), a parameter category should be pass along with the request.
@@ -37397,7 +37397,7 @@ Request Body:
              <div class="method-section">
                  <div class="method-description">
                      <h4>Retrieve survey</h4>
-                     <p>Lists a registered survey table details and the Apache Fineract Core application table they are registered to.
+                     <p>Lists a registered survey table details and the Cash Management Core application table they are registered to.
                      </p>
                  </div>
                  <div class="method-example">
@@ -37619,10 +37619,10 @@ GET https://DomainName/api/v1/{resource}/{resourceId}/notes
         },
         "note": "First note edited",
         "createdById": 1,
-        "createdByUsername": "mifos",
+        "createdByUsername": "cash_man",
         "createdOn": 1342498505000,
         "updatedById": 1,
-        "updatedByUsername": "mifos",
+        "updatedByUsername": "cash_man",
         "updatedOn": 1342498517000
     }
 ]
@@ -37662,10 +37662,10 @@ GET https://DomainName/api/v1/{resource}/{resourceId}/notes/{noteId}
     },
     "note": "a note about the client",
     "createdById": 1,
-    "createdByUsername": "mifos",
+    "createdByUsername": "cash_man",
     "createdOn": 1359463135000,
     "updatedById": 1,
-    "updatedByUsername": "mifos",
+    "updatedByUsername": "cash_man",
     "updatedOn": 1359463135000
 }
 					</code>
@@ -38390,7 +38390,7 @@ Request Body:
 			<div class="method-section">
 				<div class="method-description">
 					<h4>Running a Report</h4>
-					<p>This resource allows you to run and receive output from pre-defined Apache Fineract reports. </p>
+					<p>This resource allows you to run and receive output from pre-defined Cash Management reports. </p>
                                         <p>Reports can also be used to provide data for searching and workflow functionality.</p>
                                         <p>
                                                 The default output is a JSON formatted "Generic Resultset". The Generic Resultset contains
@@ -38400,7 +38400,7 @@ Request Body:
 					<p>If Pentaho reports have been pre-defined, they can also be
 						run through this resource. Pentaho reports can return HTML, PDF or
 						CSV formats.</p>
-					<p>The Apache Fineract reference application uses a
+					<p>The Cash Management reference application uses a
 						JQuery plugin called stretchyreporting which, itself, uses this
 						reports resource to provide a pretty flexible reporting User
 						Interface (UI).</p>
@@ -39006,14 +39006,14 @@ Request Body:
 POST https://DomainName/api/v1/authentication?username={username}&password={password}
 					</code>
 					<code class="method-request">
-POST authentication?username=mifos&password=password
+POST authentication?username=cash_man&password=password
 Content-Type: application/json
 No Request Body
 					</code>
 					<p>Example response of autentication for user that is not linked with any staff.</p>
 					<code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -39034,7 +39034,7 @@ No Request Body
 					<p>Example response of autentication for user that is linked with a staff member and role.</p>
 <code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -39065,14 +39065,14 @@ No Request Body
 
 
 					<code class="method-request">
-POST authentication?username=mifos&password=fail
+POST authentication?username=cash_man&password=fail
 Content-Type: application/json
 No Request Body
 					</code>
 					<code class="method-response">
 {
     "developerMessage": "Invalid authentication details were passed in api request.",
-    "developerDocLink": "https://github.com/openMF/mifosx/wiki/HTTP-API-Error-codes",
+    "developerDocLink": "#",
     "httpStatusCode": "401",
     "defaultUserMessage": "Unauthenticated. Please login.",
     "userMessageGlobalisationCode": "error.msg.not.authenticated",
@@ -39108,7 +39108,7 @@ No Request Body
 					<p>Example response of authenticated user user that is not linked with any staff.</p>
 					<code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "accessToken": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -39129,7 +39129,7 @@ No Request Body
 					<p>Example response of authenticated user that is linked with a staff member and role.</p>
 <code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "accessToken": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -39188,12 +39188,12 @@ GET https://DomainName/api/v1/users
 [
     {
         "id": 1,
-        "username": "mifos",
+        "username": "cash_man",
         "officeId": 1,
         "officeName": "Head Office",
         "firstname": "App",
         "lastname": "Administrator",
-        "email": "demomfi@mifos.org",
+        "email": "tech.support@novus-fintech.com",
         "passwordNeverExpires": false,
         "staff": {
 		   "id": 1,
@@ -39294,12 +39294,12 @@ GET https://DomainName/api/v1/users/{userId}
 					<code class="method-response">
 {
     "id": 1,
-    "username": "mifos",
+    "username": "cash_man",
     "officeId": 1,
     "officeName": "Head Office",
     "firstname": "App",
     "lastname": "Administrator",
-    "email": "demomfi@mifos.org",
+    "email": "tech.support@novus-fintech.com",
     "passwordNeverExpires": true,
     "staff": {
 	 "id": 1,
@@ -39366,7 +39366,7 @@ Request body:
     "username": "newuser",
     "firstname": "Test",
     "lastname": "User",
-    "email": "whatever@mifos.org",
+    "email": "tech.support@novus-fintech.com",
     "officeId": 1,
     "staffId": 1,
     "roles": [2,3],
@@ -39387,7 +39387,7 @@ Request body:
     "username": "newuser",
     "firstname": "Test",
     "lastname": "User",
-    "email": "whatever@mifos.org",
+    "email": "tech.support@novus-fintech.com",
     "officeId": 1,
     "staffId": 1,
     "roles": [2,3],
@@ -39413,7 +39413,7 @@ Request body:
     "username": "newuser",
     "firstname": "Test",
     "lastname": "User",
-    "email": "whatever@mifos.org",
+    "email": "tech.support@novus-fintech.com",
     "officeId": 1,
     "staffId": 1,
     "roles": [2,3],
@@ -39758,7 +39758,7 @@ Request body:
 				<div class="method-description">
 					<h3>Permissions</h3>
 					<p>An API capability to support management of application permissions for user administration.</p>
-                                        <p>There is no Apache Fineract functionality for creating or deleting permissions.  Permissions come pre-installed.</p>
+                                        <p>There is no Cash Management functionality for creating or deleting permissions.  Permissions come pre-installed.</p>
                                         <p>Permissions are not updated, except in the case of enabling or disabling non-read transactions for
                                         Maker Checker functionality</p>
 				</div>
@@ -39781,7 +39781,7 @@ Request body:
                                             enabled for Maker Check functionality.
                                             </p>
                                             <p>
-                                            Note: Each Apache Fineract transaction is associated with a permission.
+                                            Note: Each Cash Management transaction is associated with a permission.
                                             </p>
                                             </dd>
                                         </dl>
@@ -39845,7 +39845,7 @@ Request Body:
 				<div class="method-description">
 					<h3>Password preferences</h3>
 					<p>This API enables management of password policy for user administration.</p>
-					<p>There is no Apache Fineract functionality for creating a validation policy.  The validation policies come pre-installed.</p>
+					<p>There is no Cash Management functionality for creating a validation policy.  The validation policies come pre-installed.</p>
 					<p>Validation policies may be updated</p>
 				</div>
 			</div>
@@ -40598,9 +40598,9 @@ GET https://DomainName/api/v1/glclosures
             3
         ],
         "createdByUserId": 1,
-        "createdByUsername": "mifos",
+        "createdByUsername": "cash_man",
         "lastUpdatedByUserId": 1,
-        "lastUpdatedByUsername": "mifos",
+        "lastUpdatedByUsername": "cash_man",
         "comments": "closed",
     },
     {
@@ -40624,9 +40624,9 @@ GET https://DomainName/api/v1/glclosures
             14
         ],
         "createdByUserId": 1,
-        "createdByUsername": "mifos",
+        "createdByUsername": "cash_man",
         "lastUpdatedByUserId": 1,
-        "lastUpdatedByUsername": "mifos",
+        "lastUpdatedByUsername": "cash_man",
         "comments": "hello",
     }
 ]
@@ -40671,9 +40671,9 @@ GET https://DomainName/api/v1/glclosures/{glclosureId}
         3
     ],
     "createdByUserId": 1,
-    "createdByUsername": "mifos",
+    "createdByUsername": "cash_man",
     "lastUpdatedByUserId": 1,
-    "lastUpdatedByUsername": "mifos",
+    "lastUpdatedByUsername": "cash_man",
     "comments": "closed",
 }
                     </code>
@@ -41105,7 +41105,7 @@ GET https://DomainName/api/v1/journalentries?transactionId=PB37X8Y21EQUY4S
         5,
         5
       ],
-      "createdByUserName": "mifos",
+      "createdByUserName": "cash_man",
       "reversed": false,
     },
     {
@@ -41145,7 +41145,7 @@ GET https://DomainName/api/v1/journalentries?transactionId=PB37X8Y21EQUY4S
         5,
         5
       ],
-      "createdByUserName": "mifos",
+      "createdByUserName": "cash_man",
       "reversed": false,
 
     }
@@ -41445,7 +41445,7 @@ GET https://DomainName/api/v1/journalentries/{entryId}
         11,
         2
     ],
-    "createdByUserName": "mifos",
+    "createdByUserName": "cash_man",
     "reversed": false,
 }
                     </code>
@@ -41869,8 +41869,8 @@ Request Body:
 					</code>
 					<code class="method-response">
 					{[
-					{"id":1, "journalEntry":true, "createdUser":"mifos", "createdDate":"16 October 2014"},
-					{"id":2, "journalEntry":true, "createdUser":"mifos", "createdDate":"16 October 2015"}
+					{"id":1, "journalEntry":true, "createdUser":"cash_man", "createdDate":"16 October 2014"},
+					{"id":2, "journalEntry":true, "createdUser":"cash_man", "createdDate":"16 October 2015"}
 					]
 					}
 					</code>
@@ -41901,7 +41901,7 @@ Request Body:
 					{
 					"id":1,
 					"journalEntry":true,
-					"createdUser":"mifos",
+					"createdUser":"cash_man",
 					"createdDate":"16 October 2014",
 					"provisioningEntries":[
 					{"historyId":1,
@@ -41920,7 +41920,7 @@ Request Body:
 					},
 					{"id":2,
 					"journalEntry":true,
-					"createdUser":"mifos",
+					"createdUser":"cash_man",
 					"createdDate":"16 October 2014",
 					"provisioningEntries":[
 					{"historyId":1,
@@ -44199,10 +44199,10 @@ No Request Body:
 					[
 					{"criteriaId":1,
 					 "criteriaName":"High Risk Products Criteria",
-					 "createdBy":"mifos"},
+					 "createdBy":"cash_man"},
 					 {"criteriaId":2,
 					 "criteriaName":"Low Risk Products Criteria",
-					 "createdBy":"mifos"}
+					 "createdBy":"cash_man"}
 					]
 					}
 					</code>
@@ -44534,9 +44534,9 @@ No Request Body:
 								"name": "Floating Rate 1",
 								"isBaseLendingRate": true,
 								"isActive": true,
-								"createdBy": "mifos",
+								"createdBy": "cash_man",
 								"createdOn": "Nov 18, 2015",
-								"modifiedBy": "mifos",
+								"modifiedBy": "cash_man",
 								"modifiedOn": "Nov 18, 2015"
 							},
 							{
@@ -44544,9 +44544,9 @@ No Request Body:
 								"name": "Floating Rate 2",
 								"isBaseLendingRate": false,
 								"isActive": true,
-								"createdBy": "mifos",
+								"createdBy": "cash_man",
 								"createdOn": "Nov 18, 2015",
-								"modifiedBy": "mifos",
+								"modifiedBy": "cash_man",
 								"modifiedOn": "Nov 18, 2015"
 							}
 						]
@@ -44575,9 +44575,9 @@ No Request Body:
 						"name": "Floating Rate 1",
 						"isBaseLendingRate": true,
 						"isActive": true,
-						"createdBy": "mifos",
+						"createdBy": "cash_man",
 						"createdOn": "Nov 18, 2015",
-						"modifiedBy": "mifos",
+						"modifiedBy": "cash_man",
 						"modifiedOn": "Nov 18, 2015",
 						"ratePeriods":
 						[
@@ -44587,9 +44587,9 @@ No Request Body:
 								"interestRate": 11,
 								"isDifferentialToBaseLendingRate": false,
 								"isActive": true,
-								"createdBy": "mifos",
+								"createdBy": "cash_man",
 								"createdOn": "Nov 18, 2015",
-								"modifiedBy": "mifos",
+								"modifiedBy": "cash_man",
 								"modifiedOn": "Nov 18, 2015"
 							},
 							{
@@ -44598,9 +44598,9 @@ No Request Body:
 								"interestRate": 10,
 								"isDifferentialToBaseLendingRate": false,
 								"isActive": true,
-								"createdBy": "mifos",
+								"createdBy": "cash_man",
 								"createdOn": "Nov 18, 2015",
-								"modifiedBy": "mifos",
+								"modifiedBy": "cash_man",
 								"modifiedOn": "Nov 18, 2015"
 							}
 						]
@@ -45391,7 +45391,7 @@ No Request Body:
 				<h3>User Generated Documents</h3>
 				<p>User Generated Documents(alternatively, Templates) are used for end-user features such as custom user defined document generation (AKA UGD).  They are based on <a href="http://mustache.github.io/">{{ moustache }} templates</a>. Think of them as a sort of built-in "mail merge" functionality.</p>
 
-				<p>User Generated Documents (and other types of templates) can aggregate data from several Apache Fineract back-end API calls via <b>mappers</b>.  Mappers can even access non-Apache Fineract REST services from other servers.  UGDs can render such data in tables, show images, etc. <i>TBD: Please have a look at some of the Example UGDs included in Apache Fineract (or <a href="https://mifosforge.jira.com/wiki/display/RES/UGD_FinalDoc">the Wiki page</a>, for now.).</i></p>
+				<p>User Generated Documents (and other types of templates) can aggregate data from several Cash Management back-end API calls via <b>mappers</b>.  Mappers can even access non-Cash Management REST services from other servers.  UGDs can render such data in tables, show images, etc. <i>TBD: Please have a look at some of the Example UGDs included in Cash Management (or <a href="#">the Wiki page</a>, for now.).</i></p>
 
 				<p>UGDs can be assigned to an entity like <b>client</b> or <b>loan</b> and be of a type like <b>Document</b> or <b>SMS</b>.  The entity and type of a UGD is only there for the convenience of user agents (UIs), in order to know where to show UGDs for the user (i.e. which tab).  The Template Engine back-end runner does not actually need this metadata.</p>
 				<table class=matrixHeading>
@@ -46399,7 +46399,7 @@ No Request Body:
 						<div class="method-description">
 							<h3>SPM API</h3>
 							<p>
-								The Apache Fineract SPM API provides the ability to create custom surveys to collect social performance measurentment data or any additional questionnaire a financial institute want to collect.
+								The Cash Management SPM API provides the ability to create custom surveys to collect social performance measurentment data or any additional questionnaire a financial institute want to collect.
 							</p>
 						</div>
 					</div>
@@ -46959,14 +46959,14 @@ No Request Body
 POST https://DomainName/api/v1/self/authentication?username={username}&password={password}
 					</code>
 					<code class="method-request">
-POST self/authentication?username=mifos&password=password
+POST self/authentication?username=cash_man&password=password
 Content-Type: application/json
 No Request Body
 					</code>
 					<p>Example response of autentication for user</p>
 <code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -46995,14 +46995,14 @@ No Request Body
 </code>
 
 					<code class="method-request">
-POST self/authentication?username=mifos&password=fail
+POST self/authentication?username=cash_man&password=fail
 Content-Type: application/json
 No Request Body
 					</code>
 					<code class="method-response">
 {
     "developerMessage": "Invalid authentication details were passed in api request.",
-    "developerDocLink": "https://github.com/openMF/mifosx/wiki/HTTP-API-Error-codes",
+    "developerDocLink": "#",
     "httpStatusCode": "401",
     "defaultUserMessage": "Unauthenticated. Please login.",
     "userMessageGlobalisationCode": "error.msg.not.authenticated",
@@ -47030,7 +47030,7 @@ No Request Body
 					<p>Example response of authenticated user.</p>
 <code class="method-response">
 {
-    "username": "mifos",
+    "username": "cash_man",
     "userId": 1,
     "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
     "authenticated": true,
@@ -47238,7 +47238,7 @@ GET https://DomainName/api/v1/self/clients/{clientId}
       1,
       1
     ],
-    "submittedByUsername": "mifos",
+    "submittedByUsername": "cash_man",
     "submittedByFirstname": "App",
     "submittedByLastname": "Administrator",
     "activatedOnDate": [
@@ -47246,7 +47246,7 @@ GET https://DomainName/api/v1/self/clients/{clientId}
       1,
       1
     ],
-    "activatedByUsername": "mifos",
+    "activatedByUsername": "cash_man",
     "activatedByFirstname": "App",
     "activatedByLastname": "Administrator"
   },
@@ -51647,7 +51647,7 @@ An enumeration that indicates the type of transaction processing strategy to be 
 
 <i>List of current approaches</i>:<br/>
 <ul>
-	<li>1 = Mifos style (Similar to Old Mifos)</li>
+	<li>1 = Cash Management style (Similar to Old Cash Management)</li>
 	<li>2 = Heavensfamily (Custom MFI approach)</li>
 	<li>3 = Creocore (Custom MFI approach)</li>
 	<li>4 = RBI (India)</li>
@@ -51930,7 +51930,7 @@ GET https://DomainName/api/v1/self/loanproducts/{productId}?clientId={clientId}
     "value": "Same as repayment period"
   },
   "transactionProcessingStrategyId": 1,
-  "transactionProcessingStrategyName": "Mifos style",
+  "transactionProcessingStrategyName": "Cash Management style",
   "charges": [],
   "principalVariationsForBorrowerCycle": [
     {
@@ -52676,7 +52676,7 @@ GET https://DomainName/api/v1/self/loanproducts/{productId}?clientId={clientId}
    {  
       "id":8,
       "userId":,
-      "username":"mifos",
+      "username":"cash_man",
       "clientId":3,
       "surveyId":1,
       "surveyName":"test",
@@ -52697,7 +52697,7 @@ GET https://DomainName/api/v1/self/loanproducts/{productId}?clientId={clientId}
 			<div class="method-section">
 				<div class="method-description">
 					<h4>Running a Report</h4>
-					<p>This resource allows you to run and receive output from pre-defined Apache Fineract reports. </p>
+					<p>This resource allows you to run and receive output from pre-defined Cash Management reports. </p>
                                         <p>
                                                 The default output is a JSON formatted "Generic Resultset". The Generic Resultset contains
 						Column Heading as well as Data information. However, you can
@@ -52706,7 +52706,7 @@ GET https://DomainName/api/v1/self/loanproducts/{productId}?clientId={clientId}
 					<p>If Pentaho reports have been pre-defined, they can also be
 						run through this resource. Pentaho reports can return HTML, PDF or
 						CSV formats.</p>
-					<p>The Apache Fineract reference application uses a
+					<p>The Cash Management reference application uses a
 						JQuery plugin called stretchyreporting which, itself, uses this
 						reports resource to provide a pretty flexible reporting User
 						Interface (UI).</p>
@@ -54911,7 +54911,7 @@ Request Body:
 <div class="fullMatrixOuter">
 	<h3>Payment Application Logic / Transaction Processing Strategy</h3>
 
-<p>The way payments (transactions) are handled and the effect they have on the loan is an area that can differ widely from MFI to MFI. Mifos allows for <strong>transaction processing strategies</strong> to be developed that are associated with a loan product. Several approaches are provided out-of-the-box. If these approaches dont meet exactly your needs a custom approach can be developed and released with the platform.</p>
+<p>The way payments (transactions) are handled and the effect they have on the loan is an area that can differ widely from MFI to MFI. Cash Management allows for <strong>transaction processing strategies</strong> to be developed that are associated with a loan product. Several approaches are provided out-of-the-box. If these approaches dont meet exactly your needs a custom approach can be developed and released with the platform.</p>
 
 <p>In general the the following areas are handled by any given <strong>transaction processing strategy</strong>:
 	<ul>
